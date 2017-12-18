@@ -16,5 +16,15 @@ public class HomeController {
 	mv.addObject("result", "vishwa");
 	return mv;
 	}
+	
+	@RequestMapping("/vishwaResume")
+	public ModelAndView navigateToVishwaResume() {
+	System.out.println("in controller navigateToVishwaResume");
+	
+	ModelAndView mv=new ModelAndView();
+	mv.setViewName("vishwaResume.jsp");
+	mv.addObject("result", "vishwa");
+	return mv;
+	}
 
 }
