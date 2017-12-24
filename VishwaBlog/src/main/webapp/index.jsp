@@ -37,14 +37,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
 var visitor = new Object();
-visitor.visitorIP = "0.0.0.0";
-visitor.visitorDevice = "Mobile";
-visitor.visitorLocationLattitude = "Mobile";
-visitor.visitorLocationLongitude = "Mobile";
-visitor.visitorBrowser ="visitorBrowser";
-visitor.visitorVisitingTime ="visitorVisitingTime";
+visitor.visitorIP = myIP();
+visitor.visitorDevice = "sizeAvailW:"+screen.availWidth+"sizeAvailH:"+screen.availHeight;
+visitor.visitorBrowser =navigator.appVersion;
+visitor.visitorVisitingTime =new Date();
 visitor.visitorModule ="HomePage";
-visitor.visitorOtherDetail="rest details";
+visitor.visitorOtherDetail=(new Date()).getTimezoneOffset()/60;
 $.ajax({
     url: "saveVisitorInfo",
     type: 'POST',
@@ -60,7 +58,28 @@ $.ajax({
         alert("error: "+data+" status: "+status+" er:"+er);
     }
 });
+function getLocation() {
+    navigator.geolocation.getCurrentPosition(showPosition);
+}
+function showPosition(position) {
+	visitor.visitorLocationLattitude = position.coords.latitude;
+	visitor.visitorLocationLongitude = position.coords.longitude;
+}
+function myIP() {
+    if (window.XMLHttpRequest) xmlhttp = new XMLHttpRequest();
+    else xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    xmlhttp.open("GET","http://api.hostip.info/get_html.php",false);
+    xmlhttp.send();
 
+    hostipInfo = xmlhttp.responseText.split("\n");
+
+    for (i=0; hostipInfo.length >= i; i++) {
+        ipAddress = hostipInfo[i].split(":");
+        if ( ipAddress[0] == "IP" ) return ipAddress[1];
+    }
+
+    return false;
+}
 </script>
 
 </head>
