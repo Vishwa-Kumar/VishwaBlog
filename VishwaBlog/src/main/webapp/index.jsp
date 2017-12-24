@@ -43,6 +43,7 @@ visitor.visitorLocationLattitude = "Mobile";
 visitor.visitorLocationLongitude = "Mobile";
 visitor.visitorBrowser ="visitorBrowser";
 visitor.visitorVisitingTime ="visitorVisitingTime";
+visitor.visitorModule ="HomePage";
 $.ajax({
     url: "saveVisitorInfo",
     type: 'POST',

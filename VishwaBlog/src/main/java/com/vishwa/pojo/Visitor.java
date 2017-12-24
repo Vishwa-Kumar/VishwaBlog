@@ -8,6 +8,13 @@ public class Visitor {
 	private String visitorLocationLongitude;
 	private String visitorBrowser;
 	private  String visitorVisitingTime;
+	private  String visitorModule;
+	public String getVisitorModule() {
+		return visitorModule;
+	}
+	public void setVisitorModule(String visitorModule) {
+		this.visitorModule = visitorModule;
+	}
 	public String getVisitorIP() {
 		return visitorIP;
 	}
