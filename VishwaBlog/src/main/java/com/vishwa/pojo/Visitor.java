@@ -9,6 +9,13 @@ public class Visitor {
 	private String visitorBrowser;
 	private  String visitorVisitingTime;
 	private  String visitorModule;
+	private  String visitorOtherDetail;
+	public String getVisitorOtherDetail() {
+		return visitorOtherDetail;
+	}
+	public void setVisitorOtherDetail(String visitorOtherDetail) {
+		this.visitorOtherDetail = visitorOtherDetail;
+	}
 	public String getVisitorModule() {
 		return visitorModule;
 	}
