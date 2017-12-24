@@ -34,6 +34,32 @@
 <link rel='stylesheet' href='resources/css/split.css' type='text/css'
 	media='screen' />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+var visitor = new Object();
+visitor.visitorIP = "0.0.0.0";
+visitor.visitorDevice = "Mobile";
+visitor.visitorLocationLattitude = "Mobile";
+visitor.visitorLocationLongitude = "Mobile";
+visitor.visitorBrowser ="visitorBrowser";
+visitor.visitorVisitingTime ="visitorVisitingTime";
+$.ajax({
+    url: "saveVisitorInfo",
+    type: 'POST',
+    dataType: 'json',
+    data: JSON.stringify(visitor),
+    contentType: 'application/json',
+    mimeType: 'application/json',
+
+    success: function (data) {
+       alert("successful");
+    },
+    error:function(data,status,er) {
+        alert("error: "+data+" status: "+status+" er:"+er);
+    }
+});
+
+</script>
 
 </head>
 
