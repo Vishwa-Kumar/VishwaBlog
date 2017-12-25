@@ -13,8 +13,8 @@
 <meta name="referrer" content="always" />
 
 <!-- Social & Open Graph -->
-<meta property="og:title" content="" />
-<meta property="og:description" content="" />
+<meta property="og:title" content="Vishwa Kumar Deepak " />
+<meta property="og:description" content="Vishwa Blog" />
 <meta property="og:image" content="">
 <!-- include your hosted image full URL -->
 <meta property="og:url" content="" />
@@ -43,28 +43,7 @@ visitor.visitorBrowser =navigator.appVersion;
 visitor.visitorVisitingTime =new Date();
 visitor.visitorModule ="HomePage";
 visitor.visitorOtherDetail=(new Date()).getTimezoneOffset()/60;
-$.ajax({
-    url: "saveVisitorInfo",
-    type: 'POST',
-    dataType: 'json',
-    data: JSON.stringify(visitor),
-    contentType: 'application/json',
-    mimeType: 'application/json',
 
-    success: function (data) {
-       alert("successful");
-    },
-    error:function(data,status,er) {
-        alert("error: "+data+" status: "+status+" er:"+er);
-    }
-});
-function getLocation() {
-    navigator.geolocation.getCurrentPosition(showPosition);
-}
-function showPosition(position) {
-	visitor.visitorLocationLattitude = position.coords.latitude;
-	visitor.visitorLocationLongitude = position.coords.longitude;
-}
 function myIP() {
     if (window.XMLHttpRequest) xmlhttp = new XMLHttpRequest();
     else xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
@@ -80,6 +59,45 @@ function myIP() {
 
     return false;
 }
+(function getLocation() {
+    if(navigator.geolocation) {
+navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
+        } else {
+            console.log("Geolocation is not supported by this browser.");
+        }
+    })();
+    
+function geoSuccess(position) {
+    var lat = position.coords.latitude;
+    var lng = position.coords.longitude;
+    console.log("lat:" + lat + " lng:" + lng);
+}function geoError() {
+    console.log("Geolocation failed.");
+}
+function geoSuccess(position) {
+    var lat = position.coords.latitude;
+    var lng = position.coords.longitude;
+    visitor.visitorLocationLongitude=lng;
+    visitor.visitorLocationLattitude=lat;
+    console.log("lat:" + lat + " lng:" + lng);
+    console.log(visitor)
+    $.ajax({
+        url: "saveVisitorInfo",
+        type: 'POST',
+        dataType: 'json',
+        data: JSON.stringify(visitor),
+        contentType: 'application/json',
+        mimeType: 'application/json',
+
+        success: function (data) {
+           console.log("vistor info saved successfully");
+        },
+        error:function(data,status,er) {
+            alert("error: "+data+" status: "+status+" er:"+er);
+        }
+    });
+}
+
 </script>
 
 </head>

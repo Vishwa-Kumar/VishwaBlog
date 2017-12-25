@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.vishwa.pojo.Visitor;
+import com.vishwa.service.StagingService;
 
 @Controller
 public class HomeController {
@@ -54,6 +55,8 @@ public class HomeController {
 			Visitor visitorObj = mapper.readValue(json, Visitor.class);
 			System.out.println("visitorObj" + visitorObj.getVisitorDevice());
 			
+			StagingService ssObj=new StagingService();
+			boolean isSaved=ssObj.saveVisitiorInformation(visitorObj);
 			response.setContentType("application/json");
 			mapper.writeValue(response.getOutputStream(), "success");
 		} catch (IOException e) {
