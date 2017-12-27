@@ -77,7 +77,7 @@ function GetAddressByLatLong(lat,lng) {
     geocoder.geocode({ 'latLng': latlng }, function (results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
             if (results[1]) {
-                alert("Location: " + results[1].formatted_address);
+                console.log("Location: " + results[1].formatted_address);
                 visitor.visitorAddress=results[1].formatted_address;
             }
         }
@@ -94,7 +94,7 @@ function GetAddressByLatLong(lat,lng) {
                console.log("vistor info saved successfully");
             },
             error:function(data,status,er) {
-                alert("error: "+data+" status: "+status+" er:"+er);
+                console.log("error: "+data+" status: "+status+" er:"+er);
             }
         });
     });
