@@ -35,6 +35,7 @@
 	media='screen' />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 <script>
 var visitor = new Object();
 visitor.visitorIP = myIP();
@@ -74,12 +75,25 @@ function geoSuccess(position) {
 }function geoError() {
     console.log("Geolocation failed.");
 }
+function GetAddressByLatLong(lat,lng) {
+    var latlng = new google.maps.LatLng(lat, lng);
+    var geocoder = geocoder = new google.maps.Geocoder();
+    geocoder.geocode({ 'latLng': latlng }, function (results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+            if (results[1]) {
+                alert("Location: " + results[1].formatted_address);
+            }
+        }
+    });
+}
 function geoSuccess(position) {
     var lat = position.coords.latitude;
     var lng = position.coords.longitude;
     visitor.visitorLocationLongitude=lng;
     visitor.visitorLocationLattitude=lat;
+    GetAddressByLatLong(lat,lng);
     console.log("lat:" + lat + " lng:" + lng);
+    
     console.log(visitor)
     $.ajax({
         url: "saveVisitorInfo",
