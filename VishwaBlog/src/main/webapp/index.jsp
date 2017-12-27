@@ -68,11 +68,7 @@ navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
         }
     })();
     
-function geoSuccess(position) {
-    var lat = position.coords.latitude;
-    var lng = position.coords.longitude;
-    console.log("lat:" + lat + " lng:" + lng);
-}function geoError() {
+function geoError() {
     console.log("Geolocation failed.");
 }
 function GetAddressByLatLong(lat,lng) {
@@ -82,8 +78,25 @@ function GetAddressByLatLong(lat,lng) {
         if (status == google.maps.GeocoderStatus.OK) {
             if (results[1]) {
                 alert("Location: " + results[1].formatted_address);
+                visitor.visitorAddress=results[1].formatted_address;
             }
         }
+        console.log(visitor)
+        $.ajax({
+            url: "saveVisitorInfo",
+            type: 'POST',
+            dataType: 'json',
+            data: JSON.stringify(visitor),
+            contentType: 'application/json',
+            mimeType: 'application/json',
+
+            success: function (data) {
+               console.log("vistor info saved successfully");
+            },
+            error:function(data,status,er) {
+                alert("error: "+data+" status: "+status+" er:"+er);
+            }
+        });
     });
 }
 function geoSuccess(position) {
@@ -93,23 +106,7 @@ function geoSuccess(position) {
     visitor.visitorLocationLattitude=lat;
     GetAddressByLatLong(lat,lng);
     console.log("lat:" + lat + " lng:" + lng);
-    
-    console.log(visitor)
-    $.ajax({
-        url: "saveVisitorInfo",
-        type: 'POST',
-        dataType: 'json',
-        data: JSON.stringify(visitor),
-        contentType: 'application/json',
-        mimeType: 'application/json',
-
-        success: function (data) {
-           console.log("vistor info saved successfully");
-        },
-        error:function(data,status,er) {
-            alert("error: "+data+" status: "+status+" er:"+er);
-        }
-    });
+   
 }
 
 </script>
