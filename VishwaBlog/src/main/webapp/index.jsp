@@ -35,7 +35,7 @@
 	media='screen' />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCc0NWcEyXs4K0hGbL2k1Yq4KoTP90Qfnc&callback=GetAddressByLatLong"></script>
 <script>
 var visitor = new Object();
 visitor.visitorIP = myIP();
