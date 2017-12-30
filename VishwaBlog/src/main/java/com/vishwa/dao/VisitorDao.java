@@ -31,14 +31,15 @@ public class VisitorDao {
 			statement = connect.createStatement();
 			// PreparedStatements can use variables and are more efficient
 		//	preparedStatement = connect.prepareStatement("insert into  vishwablog.staging values (default, ?, ?, ?, ? , ?, ?)");
-			preparedStatement = connect.prepareStatement("INSERT INTO `vishwablog`.`staging` (`module`, `ip`, `device`, `browser`, `locationLattitude`, `locationLongitude`, `otherDetails`) VALUES (?,?,?,?,?,?,?)");
+			preparedStatement = connect.prepareStatement("INSERT INTO `vishwablog`.`staging` (`module`, `ip`, `device`, `browser`, `locationLattitude`, `locationLongitude`,`locationAddress`, `otherDetails`) VALUES (?,?,?,?,?,?,?,?)");
 			preparedStatement.setString(1,v.getVisitorModule());
 			preparedStatement.setString(2, v.getVisitorIP());
 			preparedStatement.setString(3, v.getVisitorDevice());
 			preparedStatement.setString(4, v.getVisitorBrowser());
 			preparedStatement.setString(5, v.getVisitorLocationLattitude());
 			preparedStatement.setString(6, v.getVisitorLocationLongitude());
-			preparedStatement.setString(7, v.getVisitorOtherDetail());
+			preparedStatement.setString(7, v.getVisitorAddress());
+			preparedStatement.setString(8, v.getVisitorOtherDetail());
 			resultCreate=preparedStatement.executeUpdate();
             System.out.println("resultCreate "+resultCreate);
 		//	writeMetaData(resultSet);

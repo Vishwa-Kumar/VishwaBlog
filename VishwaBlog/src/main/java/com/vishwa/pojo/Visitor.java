@@ -6,6 +6,7 @@ public class Visitor {
 	private String visitorDevice;
 	private String visitorLocationLattitude;
 	private String visitorLocationLongitude;
+	private String visitorAddress;
 	private String visitorBrowser;
 	private  String visitorVisitingTime;
 	private  String visitorModule;
@@ -15,6 +16,12 @@ public class Visitor {
 	}
 	public void setVisitorOtherDetail(String visitorOtherDetail) {
 		this.visitorOtherDetail = visitorOtherDetail;
+	}
+	public String getVisitorAddress() {
+		return visitorAddress;
+	}
+	public void setVisitorAddress(String visitorAddress) {
+		this.visitorAddress = visitorAddress;
 	}
 	public String getVisitorModule() {
 		return visitorModule;

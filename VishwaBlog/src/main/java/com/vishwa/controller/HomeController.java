@@ -3,15 +3,18 @@ package com.vishwa.controller;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.vishwa.pojo.LifeBlogPojo;
 import com.vishwa.pojo.Visitor;
 import com.vishwa.service.StagingService;
 
@@ -34,6 +37,27 @@ public class HomeController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("vishwaResume.jsp");
 		mv.addObject("result", "vishwa");
+		return mv;
+	}
+	
+	@RequestMapping("/vishwaLifeBlog")
+	public ModelAndView navigateToVishwaLifeBlog() {
+		System.out.println("in HomeController navigateToVishwaLifeBlog");
+		StagingService sSerObj=new StagingService();
+		ArrayList<LifeBlogPojo> lifeBlogList=new ArrayList<>();
+		lifeBlogList=sSerObj.getLifeBlogList();
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("vishwaLifeBlog.jsp");
+		mv.addObject("lifeBloglist",lifeBlogList);
+		return mv;
+	}
+	@RequestMapping("/vishwaLifeDetail")
+	public ModelAndView navigateTovishwaLifeDetail(@RequestParam("id") long id) {
+		
+		System.out.println("in HomeController vishwaLifeDetail: id"+id);
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("lifeBlogDetail.jsp");
+		mv.addObject("index",id);
 		return mv;
 	}
 
