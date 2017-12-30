@@ -167,9 +167,9 @@
 							<li>role and permissions</li>
 							<li>customer management</li>
 							<li>Atm and location</li>
-							<li>Manage limit and fees</li> etc..
+							<li>Manage limit and fees etc..</li> 
 						</ul>
-						</p>
+						
 					</div>
 					<div class="resume-date text-md-right">
 						<span class="text-primary">July 2010 - December 2011</span>
@@ -200,8 +200,8 @@
 						</h3>
 						<div class="subheading mb-3">Tata Consultancy Services</div>
 						<p>An application which enables Tata Docomo customers to pay
-							Mobile Postpaid Bill on 100% secure & hassle free online portal
-							through Credit/Debit Card or Net Banking.</p>
+							Mobile Post paid Bill on 100% secure & hassle free online portal
+							through Credit/ Debit Card or Net Banking.</p>
 					</div>
 					<div class="resume-date text-md-right">
 						<span class="text-primary">August 2014 - January 2017</span>
@@ -304,43 +304,51 @@
 					<li>
 						<h3 class="mb-0">
 							Star Team
-							</h>
+							</h3>
 							<i class="fa-li fa fa-trophy text-warning"></i>
-					</li>
-					<p>In appreciation of outstanding contribution to the
-						organisation, awarded the Star Team(06-May-2016) for being an
+							<p>In appreciation of outstanding contribution to the
+						organization, awarded the Star Team(06-May-2016) for being an
 						inspiring role model to my colleagues.</p>
+					</li>
+					
 					<li>
 						<h3 class="mb-0">
 							<i class="fa-li fa fa-trophy text-warning"></i> Oracle Certified
 							Professional, Java SE 6 Programmer - Oracle Certification
-							</h>
+							</h3>
+							<p>Oracle</p>
 					</li>
-					<p>Oracle</p>
+					
 					<li>
 						<h3 class="mb-0">
 							<i class="fa-li fa fa-trophy text-warning"></i> Microsoft
 							Technology Associate: Database Administration Fundamentals
-							</h>
+							</h3>
+							<p>Microsoft</p>
 					</li>
-					<p>Microsoft</p>
+					
 					<li>
 						<h3 class="mb-0">
 							<i class="fa-li fa fa-trophy text-warning"></i> SQL for Data
 							Reporting and Analysis
-							</h>
+							</h3>
+							<p>Lynda.com : License CCCB9E</p>
 					</li>
-					<p>Lynda.com : License CCCB9E</p>
+					
 					<li><h3 class="mb-0">
 							<i class="fa-li fa fa-trophy text-warning"></i> Foundations of
 							Programming: Design Patterns
-							</h></li>
-					<p>Lynda.com</p>
+							</h3>
+							<p>Lynda.com</p>
+							</li>
+							
+					
 					<li><h3 class="mb-0">
 							<i class="fa-li fa fa-trophy text-warning"></i> Young India
 							Leadership
-							</h></li>
-					<p>Toastmaster International</p>
+							</h3></li>
+							<p>Toastmaster International</p>
+					
 					<li>
 				</ul>
 			</div>

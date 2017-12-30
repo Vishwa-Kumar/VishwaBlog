@@ -160,7 +160,7 @@ function geoSuccess(position) {
 						<ul>
 							<li><a href="#">Travel</a></li>
 							<li><a href="#">Food</a></li>
-							<li><a href="#">Life</a></li>
+							<li><a href="vishwaLifeBlog">Life</a></li>
 							<li><a href="#">Tech</a></li>
 						</ul>
 
